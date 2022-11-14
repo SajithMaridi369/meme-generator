@@ -1,19 +1,13 @@
+
+
 const InputForm = () => {
-  const submitted = () => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "7e5f49fc13msh17d5fcd6a510b96p1d07afjsnee858c4eef94",
-        "X-RapidAPI-Host": "ronreiter-meme-generator.p.rapidapi.com",
-      },
-    };
-  
-    fetch("https://ronreiter-meme-generator.p.rapidapi.com/images", options)
-      .then((response) => response.json())
-      .then((response) => console.log("This Happened"))
-      .catch((err) => console.error(err));
-    console.log(options);
-    alert("This...!!");
+  let arr;
+  const submitted = async () => {
+    
+    arr = await fetch('https://api.imgflip.com/get_memes')
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
   };
 
   return (
